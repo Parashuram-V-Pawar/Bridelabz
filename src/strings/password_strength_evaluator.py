@@ -19,12 +19,14 @@ def password_strength_checker(password):
   # Loop to check each character in password
   for p in password :
 
-    # Condition checks if the character is uppercase
-    if p.isupper():
+    ascii_val = ord(p)
+
+    # Condition checks if the character is uppercase(A-Z)
+    if ascii_val>=65 and ascii_val<=90:
       is_uppercase = True
 
-    # Condition checks if the character is digit
-    elif p.isdigit():
+    # Condition checks if the character is digit(0-9)
+    elif ascii_val>=48 and ascii_val<=57:
       is_digit = True
   
   # Condition to check if the length is >= 8 and has atleast 1 digit and uppercase letter
@@ -37,5 +39,9 @@ def password_strength_checker(password):
 # Taking input from user
 password = input()
 
+# Check if password is not empty string
+if(len(password)>0):
 # Calling function and passing password as argument
-password_strength_checker(password)
+  password_strength_checker(password)
+else :
+  print("Password cannot be empty")
