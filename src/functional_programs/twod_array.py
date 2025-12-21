@@ -1,36 +1,33 @@
-def two_d_array_input(rows, columns, datatype):
-  arr = []
+# Problem Statement: 2D Array
+#
+# Description:
+# Create a program/library that reads a 2D array of integers, floats (doubles),
+# or booleans from standard input and prints the array to standard output.
+#
+# Input:
+# - M → number of rows
+# - N → number of columns
+# - M × N values → elements of the 2D array entered row-wise
+#   (In Java, Scanner is used for input; in Python, input() is used)
+#
+# Output:
+# - Print the 2D array to standard output
+# - Each row should be printed on a new line with elements separated by spaces
+#   (In Java, PrintWriter with OutputStreamWriter is used; in Python, print statements are used)
 
-  #input statement
-  print("Enter the elements row wise: ")
-  for i in range(rows):
-    l = list(map(datatype, input().split()))
-    arr.append(l)
+def two_d_array(row, col):
+  datatype = int(input("Choose data type to store:\n1. integer\n2. Float\n3. Boolean\n"))
+  if datatype == 1:
+    a = [[int(x) for x in input().split()] for _ in range(row)]
+    print(a)
+  elif datatype == 2:
+    a = [[float(x) for x in input().split()] for _ in range(row)]
+    print(a)
+  elif datatype == 3:
+    print("Enter values for boolean in 1's or 0's")
+    a = [[bool(int(x)) for x in input().split()] for _ in range(row)]
+    print(a)
 
-  #print statement
-  print("The 2D array elements are: ")
-  for i in range(rows):
-    for j in range(columns):
-      print(arr[i][j], end=" ")
-    print()
-
-
-
-
-
-rows = int(input("Enter number of rows: "))
-columns = int(input("Enter number of columns: "))
-
-datatype = input("Enter the type of data you want to store (int/float/boolean): ").lower()
-if(datatype == 'int'):
-  two_d_array_input(rows, columns, int)
-elif(datatype == 'float'):
-  two_d_array_input(rows, columns, float)
-elif(datatype == 'boolean'):
-  if datatype in ("true","t","1","yes","y"):
-    boolean_val = True
-  elif datatype in ("false","f","0","no","n"):
-    boolean_val = False 
-  two_d_array_input(rows, columns, boolean_val)
-else:
-  print("Invalid data type selected.")
+row = int(input())
+col = int(input())
+two_d_array(row, col)
