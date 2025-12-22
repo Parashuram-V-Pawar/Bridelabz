@@ -47,4 +47,3 @@ else:
     print(f"Enter exactly {inflow_number} space seperated values for water inflow.")
   else:
     print(water_tank_overflow_detector(inflow_number, inflow))
-
