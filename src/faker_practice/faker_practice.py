@@ -63,4 +63,3 @@ def fake_date_time(num):
         date_times.append(date_time)
     return pd.DataFrame(date_times)
 print(fake_date_time(20))
-
